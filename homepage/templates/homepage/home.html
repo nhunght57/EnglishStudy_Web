@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    {% load staticfiles %}
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="nhung" />
+    <link type="text/css" rel="stylesheet" href="{% static 'homepage/style.css' %}"/>
+	<title>Hoc tieng anh truc tuyen</title>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="home.html">I &hearts; English</a></li>
+            <li><a href="Khoahoc.html">Khóa học</a></li>
+            <li><a href="videotienganh.html">Video Tiếng Anh</a></li>
+            <li><a href="Baihattienganh.html">Bài hát tiếng Anh</a></li>
+			<li><a href="Tracnghiem.html">Trắc nghiệm</a></li>
+            <li><a href="tailieu.html">Tài liệu tiếng Anh</a></li>
+			<li><a href="trochoi.html"> Trò chơi</a></li>
+        </ul>
+        
+    </div>
+    <div id="head">
+    	<div class="home"><a href="home.html"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
+       <form method="post" action="">
+       		<table>
+                <tr>
+                    <td><input type="text" name="user" value="user" size="15" maxlength="25"></td>
+                    <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
+                    <td><input type="submit" name="dangnhap" value=" Đăng Nhập"></td>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="luupass" value="ghi nhớ" checked> ghi nhớ </td>
+                    <td><a href="quenmatkhau.html"> quên mật khẩu</a></td>
+                    <td><input type="button" name="register" value="Đăng ký"></td>
+                </tr>
+           </table>
+        </form>
+    </div>
+    
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>
