@@ -12,12 +12,35 @@ class IndexView(generic.ListView):
         return None
 
 
-class KhoahocView(generic.DetailView):
+class KhoahocView(generic.ListView):
     template_name = 'homepage/Khoahoc.html'
 
     def get_queryset(self):
         return None
 
+class VideoTiengAnhView(generic.ListView):
+    template_name = 'homepage/videotienganh.html'
+
+    def get_queryset(self):
+        return None
+
+class BaiHatTiengAnhView(generic.ListView):
+    template_name = 'homepage/baihattienganh.html'
+
+    def get_queryset(self):
+        return None
+
+class TaiLieuView(generic.ListView):
+    template_name = 'homepage/tailieu.html'
+
+    def get_queryset(self):
+        return None
+
+class TroChoiView(generic.ListView):
+    template_name = 'homepage/trochoi.html'
+
+    def get_queryset(self):
+        return None
 
 class TracNghiemView(generic.ListView):
     template_name = 'homepage/tracnghiem.html'

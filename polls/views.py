@@ -13,6 +13,8 @@ from django.views import generic
 from polls.models import Question, Choice
 
 # Create your views here.
+
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'all_question_list'
