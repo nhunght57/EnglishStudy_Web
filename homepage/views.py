@@ -12,7 +12,18 @@ class IndexView(generic.ListView):
         return None
 
 
-class 
+class KhoahocView(generic.DetailView):
+    template_name = 'homepage/Khoahoc.html'
+
+    def get_queryset(self):
+        return None
+
+
+class TracNghiemView(generic.ListView):
+    template_name = 'homepage/tracnghiem.html'
+
+    def get_queryset(self):
+        return None
 
 def auth(request):
     username = request.POST['username']

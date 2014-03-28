@@ -1,5 +1,4 @@
 __author__ = 'k15bh_000'
 from django.http import HttpResponse
+from django.views import generic
 
-def index(request):
-    return HttpResponse("index view")
