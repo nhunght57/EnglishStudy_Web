@@ -5,6 +5,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
+########################################################
+######### Generic views of every section ##################
+#########################################################
 class IndexView(generic.ListView):
     template_name = 'homepage/home.html'
 
@@ -48,11 +51,19 @@ class TracNghiemView(generic.ListView):
     def get_queryset(self):
         return None
 
+########################################################
+######### End of generic views of every section ##############
+#########################################################
+
+
+
+# Check for a valid login - handle POST request
+# Authentication system
 def auth(request):
     username = request.POST['username']
     password = request.POST['password']
 
-    user = authenticate(username = username, password = password)
+    user = authenticate(username=username, password=password)
 
     if user is not None:
         login(request, user)
