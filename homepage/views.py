@@ -54,4 +54,8 @@ def auth(request):
 
     user = authenticate(username = username, password = password)
 
-    return HttpResponse("<p>Invalid login</p>")
+    if user is not None:
+        login(request, user)
+        return HttpResponse("<p>You're logged in</p>")
+    else:
+        return HttpResponse("<p>Invalid login<p>")

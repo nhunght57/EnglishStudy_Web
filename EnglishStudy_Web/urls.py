@@ -9,11 +9,11 @@ urlpatterns = patterns('',
     # url(r'^$', 'EnglishStudy_Web.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^homepage/', include('homepage.urls',namespace='homepage')),
+    url(r'^homepage/', include('homepage.urls', namespace='homepage')),
     url(r'^$',views.IndexView.as_view(), name='index'),
 
 
-    url(r'^accounts/auth/$', include('homepage.urls')),
+    url(r'^accounts/auth/$', 'homepage.views.auth'),
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
 )

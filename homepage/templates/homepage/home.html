@@ -26,12 +26,12 @@
         
     </div>
     <div id="head">
-    	<div class="home"><a href="home.html"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
-       <form ID="login" method="post" action="/accounts/auth">
+    	<div class="home"><a href="/"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
+       <form ID="login" method="post" action="/accounts/auth/">
        	{% csrf_token %}
            <table>
                 <tr>
-                    <td><input type="text" name="user" value="user" size="15" maxlength="25"></td>
+                    <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
                     <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
                     <td><input type="submit" name="dangnhap" value=" Đăng Nhập"></td>
                 </tr>
