@@ -52,8 +52,7 @@ class TracNghiemView(generic.ListView):
     def get_queryset(self):
         return None
 
-def login(request):
-    username = request.POST['user']
+
 ########################################################
 ######### End of generic views of every section ##############
 #########################################################
