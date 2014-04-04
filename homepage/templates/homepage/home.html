@@ -12,26 +12,29 @@
 	<title>Hoc tieng anh truc tuyen</title>
 </head>
 
-<body background="background.jpg">
+<body>
     <div id="menu">
         <ul>
-            <li><a href="/">I &hearts; English</a></li>
-            <li><a href ={% url 'homepage:khoahoc' %}>Khóa học</a></li>
-            <li><a href={% url 'homepage:videotienganh' %}>Video Tiếng Anh</a></li>
-            <li><a href ={% url 'homepage:baihattienganh' %}>Bài hát tiếng Anh</a></li>
-			<li><a href={% url 'homepage:tracnghiem' %}>Trắc nghiệm</a></li>
-            <li><a href={% url 'homepage:tailieu' %}>Tài liệu tiếng Anh</a></li>
-			<li><a href={% url 'homepage:trochoi' %}> Trò chơi</a></li>
+            <li id="menu1"><a href="/">I &hearts; English</a></li>
+            <li id="menu1"><a href ={% url 'homepage:khoahoc' %}>Khóa học</a></li>
+            <li id="menu1"><a href={% url 'homepage:videotienganh' %}>Video Tiếng Anh</a></li>
+            <li id="menu1"><a href ={% url 'homepage:baihattienganh' %}>Bài hát tiếng Anh</a></li>
+			<li id="menu1"><a href={% url 'homepage:tracnghiem' %}>Trắc nghiệm</a></li>
+            <li id="menu1"><a href={% url 'homepage:tailieu' %}>Tài liệu tiếng Anh</a></li>
+			<li id="menu1"><a href={% url 'homepage:trochoi' %}> Trò chơi</a></li>
         </ul>
         
     </div>
     <div id="head">
-    	<div class="home"><a href="home.html"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
-       <form ID="login" method="post" action="/accounts/auth">
+    	<div class="home"><a href="/"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
+       <form ID="login" method="post" action="/accounts/auth/">
        	{% csrf_token %}
-           <table>
+           {% if user.is_authenticated %}
+
+           {% else %}
+               <table>
                 <tr>
-                    <td><input type="text" name="user" value="user" size="15" maxlength="25"></td>
+                    <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
                     <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
                     <td><input type="submit" name="dangnhap" value=" Đăng Nhập"></td>
                 </tr>
@@ -41,10 +44,19 @@
                     <td><input type="button" name="register" value="Đăng ký"></td>
                 </tr>
            </table>
+           {% endif %}
+
         </form>
     </div>
     
-    <div class="left"></div>
+    <div class="left">
+    	<h2> Menu</h2>
+        <div class="vd"> Kiến thức cơ bản </div>
+       	<a ID="otherpage" href="otherpage/nguphapcoban.html"> <span>&hearts;</span> Ngữ pháp cơ bản </a><br>
+        <a ID="otherpage" href="otherpage/tuvungcoban.html"> <span>&hearts;</span>Từ vựng cơ bản </a><br>
+        <a id="otherpage" href="otherpage/dongtubatquytac.html"> <span> &hearts;</span> 200 động từ bất quy tắc </a><br>
+        <a id="otherpage" href="otherpage/quytacphatam.html"> <span> &hearts;</span> Quy tắc phát âm cơ bản </a><br>
+    </div>
     <div class="right">
     <img id="banner" alt="giới thiệu" src="{% static 'homepage/image/banner.gif' %}">
     <p class="ban-co-biet"><strong> Bạn có biết?</strong></p>
@@ -104,7 +116,7 @@ Bạn có thể chọn giáo trình phù hợp để học, ghi nhớ, ôn tập
             <p id="title5">Chủ động về thời gian, địa điểm</p>
 Chỉ cần máy tính, smart phone hoặc máy tính bảng của bạn có kết nối internet. Bạn có thể học, gửi bài và ôn lại bài bất cứ nơi đâu, bất cứ khi nào (24/24 và 7/7).
             </td>
-            <td><img id="why" src="{% static 'homepage/image/tải xuống (1).jpgt' %}"></td>
+            <td><img id="why" src="{% static 'homepage/image/tải xuống (1).jpg' %}"></td>
             <td>
             <p id="title6">Chia sẻ, học hỏi và thi đua với cộng đồng thành viên We &hearts; English</p>
 Kết bạn, giao lưu, chia sẻ kinh nghiệm và thi đấu tiếng Anh với hơn 1,1 triệu thành viên khác.
