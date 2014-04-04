@@ -63,6 +63,8 @@ def auth(request):
     username = request.POST['username']
     password = request.POST['password']
 
+    print (type(request))
+
     user = authenticate(username=username, password=password)
 
     if user is not None:
