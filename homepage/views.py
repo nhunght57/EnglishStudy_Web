@@ -42,14 +42,15 @@ class TroChoiView(generic.ListView):
     def get_queryset(self):
         return None
 
+
 class TracNghiemView(generic.ListView):
     template_name = 'homepage/tracnghiem.html'
 
     def get_queryset(self):
         return None
 
-def auth(request):
-    username = request.POST['username']
+def login(request):
+    username = request.POST['user']
     password = request.POST['password']
 
     user = authenticate(username = username, password = password)

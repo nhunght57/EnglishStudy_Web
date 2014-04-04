@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^$',views.IndexView.as_view(), name='index'),
 
 
-    url(r'^accounts/auth/$', include('homepage.urls')),
+    url(r'^accounts/auth', views.auth,name='acc'),
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -12,5 +12,6 @@ urlpatterns = patterns('',
         url(r'^tracnghiem', views.TracNghiemView.as_view(), name='tracnghiem'),
         url(r'^tailieu', views.TaiLieuView.as_view(), name='tailieu'),
         url(r'^trochoi', views.TroChoiView.as_view(), name='trochoi'),
+     #   url(r'^$', views.IndexView.as_view(), name='home'),
 
 )
