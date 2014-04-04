@@ -78,6 +78,8 @@ def vote(request, question_id):
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
 
+
+
     except(KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form
         return render(request, template, {

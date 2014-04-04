@@ -48,9 +48,16 @@
     <div class="right">
         {% if list_of_questions %}
             <ul>
-            {% for Question in list_of_questions %}
-                <li>{{ Question.question_text }}</li>
+            {% for question in list_of_questions %}
+                <li>{{ question.question_text }}
+                    {% for choice in question.choice_set.all  %}
+                        <li>
+                        {{ choice.choice_text }}
+                        </li>
+                        {% endfor %}
+                </li>
             {% endfor %}
+            </ul>
         {% else %}
             <p>không có gì thú vị ở đây cả</p>
         {% endif %}

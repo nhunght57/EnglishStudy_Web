@@ -52,8 +52,6 @@ class TracNghiemView(generic.ListView):
     template_name = 'homepage/tracnghiem.html'
     context_object_name = 'list_of_questions'
 
-    print(type(context_object_name))
-
     def get_queryset(self):
         return Question.objects.all()
 
