@@ -52,10 +52,8 @@ class TracNghiemView(generic.ListView):
     def get_queryset(self):
         return None
 
-<<<<<<< HEAD
 def login(request):
     username = request.POST['user']
-=======
 ########################################################
 ######### End of generic views of every section ##############
 #########################################################
@@ -66,7 +64,6 @@ def login(request):
 # Authentication system
 def auth(request):
     username = request.POST['username']
->>>>>>> 041d75c1c8368cf70e3936722a58bc0a59c125b2
     password = request.POST['password']
 
     print (type(request))

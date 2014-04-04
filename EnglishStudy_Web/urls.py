@@ -19,12 +19,9 @@ urlpatterns = patterns('',
     # maybe we should put it in namespace 'accounts' later
     url(r'^accounts/auth/$', 'homepage.views.auth'),
 
-<<<<<<< HEAD
     url(r'^accounts/auth', views.auth,name='acc'),
-=======
 
     # /polls - example polls application
->>>>>>> 041d75c1c8368cf70e3936722a58bc0a59c125b2
     url(r'^polls/', include('polls.urls', namespace='polls')),
 
     # /admin - Django built-in interactive Admin page
