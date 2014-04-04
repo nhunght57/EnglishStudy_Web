@@ -30,7 +30,7 @@
        <form ID="login" method="post" action="/accounts/auth/">
        	{% csrf_token %}
            {% if user.is_authenticated %}
-
+                {{ user.username }}
            {% else %}
                <table>
                 <tr>

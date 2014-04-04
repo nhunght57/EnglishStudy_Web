@@ -3,6 +3,8 @@ from django.views import generic
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
 
+from homepage.models import Question, Choice
+
 # Create your views here.
 
 ########################################################
@@ -48,9 +50,12 @@ class TroChoiView(generic.ListView):
 
 class TracNghiemView(generic.ListView):
     template_name = 'homepage/tracnghiem.html'
+    context_object_name = 'list_of_questions'
+
+    print(type(context_object_name))
 
     def get_queryset(self):
-        return None
+        return Question.objects.all()
 
 
 ########################################################
@@ -71,6 +76,6 @@ def auth(request):
 
     if user is not None:
         login(request, user)
-        return HttpResponse("<p>You're logged in</p>")
+        return HttpResponseRedirect('/homepage/tracnghiem/')
     else:
         return HttpResponse("<p>Invalid login<p>")
