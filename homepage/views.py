@@ -80,4 +80,4 @@ def auth(request):
 
 def logout_view(request):
     logout(request);
-    return HttpResponseRedirect('/#')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
