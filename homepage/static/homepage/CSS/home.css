@@ -130,10 +130,10 @@ span{
     margin-left: 20px;
 	float:left;
 }
-#login{
+#authentication{
 	float: right;
 	margin-top: 35px;
 }
-center form{
-	float center;
-}
+/*center form{*/
+	/*float center;*/
+/*}*/

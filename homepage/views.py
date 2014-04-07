@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.views import generic
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 
 from homepage.models import Question, Choice
@@ -77,3 +77,7 @@ def auth(request):
         return HttpResponseRedirect('/homepage/tracnghiem/')
     else:
         return HttpResponse("<p>Invalid login<p>")
+
+def logout_view(request):
+    logout(request);
+    return HttpResponseRedirect('/#')

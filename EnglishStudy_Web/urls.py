@@ -18,8 +18,7 @@ urlpatterns = patterns('',
     # /accounts/auth - authentication system
     # maybe we should put it in namespace 'accounts' later
     url(r'^accounts/auth/$', 'homepage.views.auth'),
-
-    url(r'^accounts/auth', views.auth,name='acc'),
+    url(r'^accounts/logout/$', 'homepage.views.logout_view'),
 
     # /polls - example polls application
     url(r'^polls/', include('polls.urls', namespace='polls')),
