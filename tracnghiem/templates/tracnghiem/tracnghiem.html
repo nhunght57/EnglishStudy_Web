@@ -8,7 +8,7 @@
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="nhung" />
-    <link type="text/css" rel="stylesheet" href="{% static 'homepage/CSS/home.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'tracnghiem/CSS/home.css' %}"/>
 	<title>Trắc nghiệm</title>
 </head>
 
@@ -16,39 +16,33 @@
     <div id="menu">
         <ul>
             <li id=menu1><a href="/">I &hearts; English</a></li>
-            <li id=menu1><a href ={% url 'homepage:khoahoc' %}>Khóa học</a></li>
-            <li id=menu1><a href={% url 'homepage:videotienganh' %}>Video Tiếng Anh</a></li>
-            <li id=menu1><a href ={% url 'homepage:baihattienganh' %}>Bài hát tiếng Anh</a></li>
-			<li id=menu1><a href={% url 'homepage:tracnghiem' %}>Trắc nghiệm</a></li>
-            <li id=menu1><a href={% url 'homepage:tailieu' %}>Tài liệu tiếng Anh</a></li>
-			<li id=menu1><a href={% url 'homepage:trochoi' %}> Trò chơi</a></li>
+			<li id=menu1><a href="/tracnghiem">Trắc nghiệm</a></li>
         </ul>
         
     </div>
     <div id="head">
     	<div class="home"><a href="/"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
         <div id="authentication">
-
         {% if user.is_authenticated %}
             Welcome {{ user.username }}<br/>
             <a href="/accounts/logout/">Logout</a>
-
         {% else %}
             <form ID="login" method="post" action="/accounts/auth/">
-            {% csrf_token %}
             <table>
-            <tr>
-                <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
-                <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
-                <td><input type="submit" name="dangnhap" value=" Đăng Nhập"></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="luupass" value="ghi nhớ" checked> ghi nhớ </td>
-                <td><a href="quenmatkhau.html"> quên mật khẩu</a></td>
-                <td><input type="button" name="register" value="Đăng ký"></td>
-            </tr>
+                {% csrf_token %}
+                <tr>
+                    <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
+                    <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
+                    <td><input type="submit" name="dangnhap" value="Đăng Nhập"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="luupass" value="keepsession">Ghi nhớ</td>
+                    <td><a href="accounts/forgot">Quên mật khẩu</a></td>
+                    <td><a href="accounts/signup">Đăng ký</a></td>
+                </tr>
             </table>
             </form>
+
         {% endif %}
         </div>
     </div>

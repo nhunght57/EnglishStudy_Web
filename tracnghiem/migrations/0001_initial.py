@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='Choice',
             fields=[
                 ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
-                ('question', models.ForeignKey(to_field='id', to='homepage.Question')),
+                ('question', models.ForeignKey(to_field='id', to='tracnghiem.Question')),
                 ('choice_text', models.CharField(max_length=200)),
             ],
             options={

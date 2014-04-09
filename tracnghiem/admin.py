@@ -1,5 +1,9 @@
 from django.contrib import admin
-from homepage.models import Choice, Question
+
+# Register your models here.
+
+from django.contrib import admin
+from tracnghiem.models import Choice, Question
 
 # Register your models here.
 class ChoiceInline(admin.TabularInline):

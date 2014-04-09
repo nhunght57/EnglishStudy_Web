@@ -1,24 +1,20 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from homepage import views
+from EnglishStudy_Web import views
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'EnglishStudy_Web.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', views.IndexView.as_view() , name='home'),
 
-    # Every menu is put under /homepage (should we let it or not?)
-    url(r'^homepage/', include('homepage.urls', namespace='homepage')),
+    # /tracnghiem
+    url(r'^tracnghiem/', include('tracnghiem.urls', namespace='tracnghiem')),
 
-    # Main homepage
-    url(r'^$',views.IndexView.as_view(), name='index'),
-
-    # /accounts/auth - authentication system
-    # maybe we should put it in namespace 'accounts' later
-    url(r'^accounts/auth/$', 'homepage.views.auth'),
-    url(r'^accounts/logout/$', 'homepage.views.logout_view'),
+    # /accounts
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 
     # /polls - example polls application
     url(r'^polls/', include('polls.urls', namespace='polls')),
@@ -26,3 +22,6 @@ urlpatterns = patterns('',
     # /admin - Django built-in interactive Admin page
     url(r'^admin/', include(admin.site.urls)),
 )
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns()
