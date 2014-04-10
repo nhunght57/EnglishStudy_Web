@@ -3,24 +3,28 @@ import sys
 
 class Draws_Rectangle:
 
-     def The_Bigger(self , longerEdge1, shorterEdge1, longerEdge2, shorterEdge2, ):
-         if (longerEdge1*shorterEdge1>longerEdge2*shorterEdge2):
+
+     def The_Bigger(self , Rec1, Rec2 ):
+         if (Rec1.get_LongerEdge * Rec1.get_ShorterEdge>Rec2.get_LongerEdge*Rec2.get_shorterEdge):
            return 1
          else:
            return 2
 
-     def Draw(self , longerEdge1, shorterEdge1, longerEdge2, shorterEdge2,):
-         result = self.The_Bigger(longerEdge1, shorterEdge1, longerEdge2, shorterEdge2)
+     def Draw(self , Rec1, Rec2):
+         result = self.The_Bigger(Rec1, Rec2)
          print("Draws The Rectangle #" + result)
 
-     def __init__(self):
-         print("index of eaxh edge of two Rec")
-         self.longerEdge1 = input()
-         self.shorterEdge1 = input()
-         self.longerEdge2 = input()
-         self.shorterEdge2 = input()
 
-
+class Rectangle:
+    LongerEdge = 0
+    ShorterEdge = 0
+    def get_LongerEdge(self):
+        return self.LongerEdge
+    def get_ShorterEdge(self):
+        return  self.ShorterEdge
+    def __init__(self):
+        self.LongerEdge = input()
+        self.ShorterEdge = input()
 
 
 
