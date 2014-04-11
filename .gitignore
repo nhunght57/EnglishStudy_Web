@@ -34,7 +34,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-<<<<<<< HEAD
 
 # IDEs
 .idea/
@@ -42,6 +41,3 @@ obj/
 *.pyproj
 *.sln
 *.suo
-=======
-.idea/
->>>>>>> 477a3f9df2715cacd70eb82ea77fa0e1a2e5a813
