@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views import generic
 
 class IndexView(generic.ListView):
-    template_name = 'home.html'
+    template_name = 'index.html'
 
     def get_queryset(self):
         return None

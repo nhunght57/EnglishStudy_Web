@@ -20,7 +20,11 @@ def auth(request):
     else:
         return HttpResponse("<p>Invalid login<p>")
 
+# users will manage their account here
+def account_detail(request):
+    return render(request, 'accounts/account_detail.html')
 
+# call this function to sign user out
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

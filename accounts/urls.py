@@ -4,10 +4,13 @@ from django.conf.urls import patterns, url, include
 
 urlpatterns = patterns('',
 
-                       # /accounts/login/
+                       # /accounts/auth/
                        url(r'^auth/', 'accounts.views.auth', name='auth'),
 
                        # /accounts/logout/
                        url(r'^logout/', 'accounts.views.logout_view', name='logout'),
+
+                       # /accounts/detail
+                       url(r'^detail/', 'accounts.views.account_detail', name='detail'),
 
 )

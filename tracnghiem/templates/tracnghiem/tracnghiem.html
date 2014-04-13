@@ -27,7 +27,7 @@
     <div id="authentication">
         {% if user.is_authenticated %}
             Welcome {{ user.username }}<br/>
-            <a href="/accounts/logout/">Logout</a>
+            <a href="{% url 'accounts:logout' %}">Logout</a>
         {% else %}
             <form ID="login" method="post" action="/accounts/auth/">
                 <table>
