@@ -1,0 +1,24 @@
+đây là base.html
+<h1 style="font: 20px">{% block id1 %}Block id1 here{% endblock %}</h1>
+<p>{% block id2 %}Block id2 here{% endblock %}</p>
+
+
+đây là page1.html
+{% extends "base.html" %}
+{% block id1 %}abcdef{% endblock %}
+{% block id2 %}123456{% endblock %}
+
+
+đây là page2.html
+{% extends "base.html" %}
+{% block id1 %}abcdef{% endblock %}
+
+
+
+kết quả khi dịch template page1.html là:
+<h1 style="font: 20px">abcdef</h1>
+<p>123456</p>
+
+kết quả khi dịch template page2.html là:
+<h1 style="font: 20px">abcdef</h1>
+<p>Block id2 here</p>

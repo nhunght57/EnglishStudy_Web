@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 
 # Create your tests here.
 class AuthenticationTest(TestCase):
+    # set up something to test here, this will be created and destroyed automatically on each time test is running
     def setUp(self):
         user = User.objects.create_user(username='example', password='example')
         user.save()
@@ -47,7 +48,6 @@ class AuthenticationTest(TestCase):
         username = "example"
         password = "example"
         self.client.login(username=username, password=password)
-        # self.client.post(reverse('accounts:auth'), {'username': 'admin', 'password': '123456'}) #NOT WORKING
 
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "You're logged in as " + username)
