@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+
+{#{% extends base.html %}#}
+
+<html>
+<head>
+    {% load staticfiles %}
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="nhung" />
+    <link type="text/css" rel="stylesheet" href="{% static 'homepage/CSS/home.css' %}"/>
+	<title>Hoc tieng anh truc tuyen</title>
+</head>
+
+<body background="background.jpg">
+    <div id="menu">
+        <ul>
+            <li><a href="/">I &hearts; English</a></li>
+            <li><a href ={% url 'homepage:khoahoc' %}>Khóa học</a></li>
+            <li><a href={% url 'homepage:videotienganh' %}>Video Tiếng Anh</a></li>
+            <li><a href ={% url 'homepage:baihattienganh' %}>Bài hát tiếng Anh</a></li>
+			<li><a href={% url 'homepage:tracnghiem' %}>Trắc nghiệm</a></li>
+            <li><a href={% url 'homepage:tailieu' %}>Tài liệu tiếng Anh</a></li>
+			<li><a href={% url 'homepage:trochoi' %}> Trò chơi</a></li>
+        </ul>
+        
+    </div>
+    <div id="head">
+    	<div class="home"><a href="home.html"><center><h1>We <span>&hearts;</span> English</h1></center></a></div>
+       <form ID="login" method="post" action="/accounts/auth">
+       	{% csrf_token %}
+           <table>
+                <tr>
+                    <td><input type="text" name="user" value="user" size="15" maxlength="25"></td>
+                    <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
+                    <td><input type="submit" name="dangnhap" value=" Đăng Nhập"></td>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="luupass" value="ghi nhớ" checked> ghi nhớ </td>
+                    <td><a href="quenmatkhau.html"> quên mật khẩu</a></td>
+                    <td><input type="button" name="register" value="Đăng ký"></td>
+                </tr>
+           </table>
+        </form>
+    </div>
+    
+    <div class="left"></div>
+    <div class="right">
+    <img id="banner" alt="giới thiệu" src="{% static 'homepage/image/banner.gif' %}">
+    <p class="ban-co-biet"><strong> Bạn có biết?</strong></p>
+    <p> <strong> Chỉ học tiếng Anh trên lớp </strong> chắc chắn không đủ. <strong>Bạn hãy tự học thêm</strong> và khuyến khích người thân của mình tự học.Vì lý do đó <span><strong>We &hearts; English </strong></span> chúng tôi cung cấp cho các bạn rất nhiều các khóa học tiếng anh trực tuyến, nhằm giúp bạn nâng cao khả năng và vốn tiếng anh của mình.</p>
+    <br>
+    <div id="chuong-trinh-hoc">
+    	Các khóa học:
+        <table width="800">
+          <tr>
+            <td><center><img id="khoahoc" alt="headway" src="{% static 'homepage/image/2-1.jpg' %}"><br>
+             	 Headway</center>
+            </td>
+            <td><center><img id="khoahoc" alt="new english file" src="{% static 'homepage/image/1.jpg' %}"><br>
+                 New English File</center>
+            </td>
+            <td><center><img id="khoahoc" alt="IELTS" src="{% static 'homepage/image/bec_cambridge-ielts-8.jpg' %}"><br>
+           		Luyện thi IELTS</center>
+            </td>
+            <td><center><img id="khoahoc" alt="TOEIC" src="{% static 'homepage/image/TOEIC_Compass_Starter_b.jpg' %}"> <br>
+            	Luyện thi TOEIC </center>
+            </td>
+            <td><center><img id="khoahoc" alt="Tiếng Anh giao tiếp" src="{% static 'homepage/image/TiengAnhGiaoTiep.jpg' %}"><br>
+           		Tiếng Anh giao tiếp </center>
+            </td>
+            <td><center> <img id="khoahoc" alt=" Tiếng anh Trẻ em" src="{% static 'homepage/image/diendanbaclieu-101135-pages-from-tt-songbook.jpg' %}"><br>
+            Tiếng Anh trẻ em </center>
+          </tr>
+        </table>
+        <br>
+        <img id="banber" alt="Tại sao bạn nên học tiếng anh online" src="{% static 'homepage/image/2_banner_2.jpg' %}"> <br>
+       	<table width="800">
+          <tr>
+            <td><img id="why"src="{% static 'homepage/image/usd.jpg' %}"></td>
+            <td>
+            <p id="title1">Chi phí thấp - hiệu quả cao.</p> Thay vì bỏ ra hàng triệu đồng để tới các trung tâm. Học online Tiếng Anh miễn phí với <span>We &hearts; English</span> bạn sẽ thấy hiệu quả rõ rệt.
+            </td>
+            <td><img id="why" src="{% static 'homepage/image/sach.jpg' %}"></td>
+            <td>
+            <p id="title2">Hệ thống bài học thông minh, phong phú & liên tục được cập nhật</p>
+Các bài học tương tác thông minh, dễ hiểu, dễ nhớ, các loại hình phong phú (video, nhạc, audio âm thanh chuẩn, hình ảnh chất lượng cao) và liên tục được cập nhật mới.
+            </td>
+          </tr>
+          <tr>
+            <td><img id="why" src="{% static 'homepage/image/homework1.jpg' %}"></td>
+            <td>
+            <p id="title3"> Gửi bài để nhận điểm và đánh giá trực tiếp từ các giáo viên</p>
+Đội ngũ giáo viên trình độ cao sẽ liên tục hỗ trợ, đánh giá, chấm điểm bài học, sửa sai và giúp bạn tiến bộ từng ngày.
+            </td>
+            <td><img id="why" src="{% static 'homepage/image/images.jpg' %}"></td>
+            <td>
+            <p id="title4"> Ôn tập và học lại kiến thức theo trình độ của mình</p>
+Bạn có thể chọn giáo trình phù hợp để học, ghi nhớ, ôn tập lại và hoàn thành các giáo trình một cách hoàn toàn chủ động.</td>
+          </tr>
+          <tr>
+            <td><img id="why" src="{% static 'homepage/image/tải xuống.jpg' %}"></td>
+            <td>
+            <p id="title5">Chủ động về thời gian, địa điểm</p>
+Chỉ cần máy tính, smart phone hoặc máy tính bảng của bạn có kết nối internet. Bạn có thể học, gửi bài và ôn lại bài bất cứ nơi đâu, bất cứ khi nào (24/24 và 7/7).
+            </td>
+            <td><img id="why" src="{% static 'homepage/image/tải xuống (1).jpgt' %}"></td>
+            <td>
+            <p id="title6">Chia sẻ, học hỏi và thi đua với cộng đồng thành viên We &hearts; English</p>
+Kết bạn, giao lưu, chia sẻ kinh nghiệm và thi đấu tiếng Anh với hơn 1,1 triệu thành viên khác.
+            </td>
+          </tr>
+        </table>
+
+
+        </div>
+    </div>
+</body>
+</html>
