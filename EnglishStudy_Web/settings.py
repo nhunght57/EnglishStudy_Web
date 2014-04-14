@@ -12,13 +12,13 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'EnglishStudy_Web/templates')]
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bis@ydlac-il&_*%fl$k4o8zg&gf)l2^8umvpj8^6*f9a9(8n&'
+SECRET_KEY = 'kube0u0o!izk#yf6@qfmeq7h$@=)#h9^*xrhxl!eq#e5+&j+8_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,13 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     
-=======
-    'polls',
-    'tracnghiem',
-    'accounts'
->>>>>>> 555ba15307c5ce1cea8a8c5d40bdd59625798a16
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,16 +82,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
-
-import os.path
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(
-        os.path.dirname(__file__),
-        'static',
-    ),
-)

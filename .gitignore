@@ -35,7 +35,7 @@ nosetests.xml
 .project
 .pydevproject
 
-# IDEs
+# IDES
 .idea/
 obj/
 *.pyproj
