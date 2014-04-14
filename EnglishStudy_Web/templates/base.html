@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Your title here{% endblock %}</title>
+    <meta name="description" content="Description of your site goes here">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <link href={% static "css/indexstyle.css" %} rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="page-in">
+    <div class="page">
+        <div class="main">
+            <div class="header">
+                <div class="header-top">
+                    <h1>{% block header_top %}Header top here{% endblock %}</h1>
+                </div>
+                <div class="header-bottom">
+                    <h2>{% block header_bottom %}Header bottom here{% endblock%}</h2>
+                </div>
+                <div class="topmenu">
+                    <ul>
+                        {% block topmenu %}Top menu here{% endblock %}
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    {% block content_left %}Content on the left here{% endblock %}
+                </div>
+                <div class="content-right">
+                    {% block content_right %}Content on the right here{% endblock %}
+                </div>
+            </div>
+            <div class="footer">
+                {% block footer %}Footer here{% endblock %}
+            </div>
+            <!--DO NOT Remove The Footer Links-->
+            <!--Designed by--><a href="http://www.htmltemplates.net">
+            <img src="images/footnote.gif" class="copyright" alt="html templates"></a>
+            <!--DO NOT Remove The Footer Links-->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
