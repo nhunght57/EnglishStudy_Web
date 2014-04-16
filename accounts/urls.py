@@ -10,7 +10,10 @@ urlpatterns = patterns('',
                        # /accounts/logout/
                        url(r'^logout/', 'accounts.views.logout_view', name='logout'),
 
-                       # /accounts/detail
+                       # /accounts/detail/
                        url(r'^detail/', 'accounts.views.account_detail', name='detail'),
+
+                       # /accounts/login/
+                       url(r'^login', 'accounts.views.login_view', name='login'),
 
 )

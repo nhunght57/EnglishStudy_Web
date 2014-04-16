@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div id="authentication">
+    {% if user.is_authenticated %}
+        Welcome {{ user.username }}<br/>
+        <a href="{% url 'accounts:logout' %}">Logout</a>
+    {% else %}
+        <form ID="login" method="post" action="/accounts/auth/">
+            <table>
+                {% csrf_token %}
+                <tr>
+                    <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
+                    <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
+                    <td><input type="submit" name="dangnhap" value="Đăng Nhập"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="luupass" value="keepsession">Ghi nhớ</td>
+                    <td><a href="accounts/forgot">Quên mật khẩu</a></td>
+                    <td><a href="accounts/signup">Đăng ký</a></td>
+                </tr>
+            </table>
+        </form>
+    {% endif %}
+</div>
+</body>
+</html>

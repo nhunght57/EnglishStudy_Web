@@ -28,3 +28,7 @@ def account_detail(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+# user will login by using this view
+def login_view(request):
+    return render(request, 'accounts/login.html')

@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'EnglishStudy_Web.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', views.IndexView.as_view() , name='home'),
+    url(r'^$', views.IndexView.as_view(), name='home'),
 
     # /tracnghiem
     url(r'^tracnghiem/', include('tracnghiem.urls', namespace='tracnghiem')),
