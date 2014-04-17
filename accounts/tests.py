@@ -35,7 +35,7 @@ class AuthenticationTest(TestCase):
 
 
     def test_login_with_invalid_credentials(self):
-        username = "example"
+        username = "admin"
         password = "123456"
         self.client.login(username=username, password=password)
 
@@ -51,3 +51,15 @@ class AuthenticationTest(TestCase):
 
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "You're logged in as " + username)
+        self.assertNotContains(response, "You're not logged in")
+
+
+    def test_logout(self):
+        username = "example"
+        password = "example"
+        self.client.login(username=username, password=password)
+
+        self.client.get(reverse('accounts:logout'))
+        response = self.client.get(reverse('accounts:detail'))
+        self.assertContains(response, "You're not logged in")
+        self.assertNotContains(response, "You're logged in as " + username)

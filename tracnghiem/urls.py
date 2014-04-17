@@ -9,4 +9,7 @@ urlpatterns = patterns('',
     # /tracnghiem/
     url(r'^$', views.TracNghiemView.as_view(), name='index'),
 
+    # /tracnghiem/post/
+    url(r'^post', 'tracnghiem.views.post', name='post'),
+
     )
