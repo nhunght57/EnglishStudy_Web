@@ -20,7 +20,7 @@ a.more { color: #2b9208; text-decoration: underline; padding-left: 11px; backgro
 a.more:hover { text-decoration: none;  }
 input, textarea, select { font-size: 12px; font-family: arial, sans-serif; }
 textarea { overflow: auto; }
-
+.authentication{ float: right; }
 .cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
 .notext { font-size: 0; line-height: 0; text-indent: -4000px; }
 .left, .alignleft { float: left; display: inline; }
