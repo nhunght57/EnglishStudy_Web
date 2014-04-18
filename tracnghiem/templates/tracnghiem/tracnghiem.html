@@ -38,7 +38,7 @@
                         <td><input type="submit" name="dangnhap" value="Đăng Nhập"></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" name="luupass" value="keepsession">Ghi nhớ</td>
+{#                        <td><input type="checkbox" name="luupass" value="keepsession">Ghi nhớ</td>#}
                         <td><a href="accounts/forgot">Quên mật khẩu</a></td>
                         <td><a href="accounts/signup">Đăng ký</a></td>
                     </tr>
@@ -51,29 +51,33 @@
 
 <div class="left"></div>
 <div class="right">
-    {% if list_of_questions %}
-        <form method="post" action="{% url 'tracnghiem:post' %}">
-            {% csrf_token %}
-            <ul>
-                {% for question in list_of_questions %}
-                    <li>
-                        {{ question.question_text }}
-                        <ul>
-                                {% for choice in question.choice_set.all %}
-                                    <input type="radio"
-                                           name="choice{{ question.id }}"
-                                           id="choice{{ forloop.counter }}"
-                                           value="{{ choice.id }}"/>
-                                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
-                                {% endfor %}
-                        </ul>
-                    </li>
-                {% endfor %}
-            </ul>
-            <input type="submit" name="submit" value="Lưu kết quả"/>
-        </form>
+    {% if user.is_authenticated %}
+        {% if list_of_questions %}
+            <form method="post" action="{% url 'tracnghiem:post' %}">
+                {% csrf_token %}
+                <ul>
+                    {% for question in list_of_questions %}
+                        <li>
+                            {{ question.question_text }}
+                            <ul>
+                                    {% for choice in question.choice_set.all %}
+                                        <input type="radio"
+                                               name="choice{{ question.id }}"
+                                               id="choice{{ forloop.counter }}"
+                                               value="{{ choice.id }}"/>
+                                        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
+                                    {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <input type="submit" name="submit" value="Lưu kết quả"/>
+            </form>
+        {% else %}
+            <p>Không có gì thú vị ở đây cả</p>
+        {% endif %}
     {% else %}
-        <p>Không có gì thú vị ở đây cả</p>
+        <p>Bạn chưa đăng nhập</p>
     {% endif %}
 </div>
 </body>
