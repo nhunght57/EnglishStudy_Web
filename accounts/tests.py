@@ -54,7 +54,7 @@ class AuthenticationTest(TestCase):
         self.assertNotContains(response, "You're not logged in")
 
 
-    def test_logout(self):
+    def test_logout_from_logged_in(self):
         username = "example"
         password = "example"
         self.client.login(username=username, password=password)
@@ -63,3 +63,17 @@ class AuthenticationTest(TestCase):
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "You're not logged in")
         self.assertNotContains(response, "You're logged in as " + username)
+
+		
+    def test_logout_without_logged_in(self):
+        self.client.get(reverse('accounts:logout'))
+        response = self.client.get(reverse('accounts:detail'))
+        self.assertContains(response, "You're not logged in")
+        self.assertNotContains(response, "You're logged in as ")
+
+
+    # def test_logout_when_browser_closed(self):
+        # simulate browser closing here
+        # response = self.client.get(reverse('accounts:detail'))
+        # self.assertContains(response, "You're not logged in")
+        # self.assertNotContains(response, "You're logged in as ")
