@@ -33,12 +33,12 @@
                 <table>
                     {% csrf_token %}
                     <tr>
-                        <td><input type="text" name="username" value="username" size="15" maxlength="25"></td>
-                        <td><input type="password" name="password" value="password" size="15" maxlength="25"></td>
+                        <td><input type="text" name="username" placeholder="username" size="15" maxlength="25"></td>
+                        <td><input type="password" name="password" placeholder="password" size="15" maxlength="25"></td>
                         <td><input type="submit" name="dangnhap" value="Đăng Nhập"></td>
                     </tr>
                     <tr>
-{#                        <td><input type="checkbox" name="luupass" value="keepsession">Ghi nhớ</td>#}
+                        <td><input type="checkbox" name="keepsession" value="yes">Ghi nhớ</td>
                         <td><a href="accounts/forgot">Quên mật khẩu</a></td>
                         <td><a href="accounts/signup">Đăng ký</a></td>
                     </tr>
@@ -60,13 +60,13 @@
                         <li>
                             {{ question.question_text }}
                             <ul>
-                                    {% for choice in question.choice_set.all %}
-                                        <input type="radio"
-                                               name="choice{{ question.id }}"
-                                               id="choice{{ forloop.counter }}"
-                                               value="{{ choice.id }}"/>
-                                        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
-                                    {% endfor %}
+                                {% for choice in question.choice_set.all %}
+                                    <input type="radio"
+                                           name="choice{{ question.id }}"
+                                           id="choice{{ forloop.counter }}"
+                                           value="{{ choice.id }}"/>
+                                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
+                                {% endfor %}
                             </ul>
                         </li>
                     {% endfor %}
