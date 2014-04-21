@@ -5,6 +5,9 @@ import datetime
 
 # Create your views here.
 
+# I want to return http referer for 2 levels, so I declared this global variable here
+previous_request = None
+
 # Check for a valid login - handle POST request
 # Authentication system
 def auth(request):
@@ -31,7 +34,11 @@ def auth(request):
 
         login(request, user)
         print("User " + username + " logged in")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+        if previous_request is not None:
+            return HttpResponseRedirect(previous_request.META.get('HTTP_REFERER'))
+        else:
+            return HttpResponseRedirect("../../")
 
     else:
         print("Authentication failed")
@@ -51,4 +58,6 @@ def logout_view(request):
 
 # user will login by using this view
 def login_view(request):
+    global previous_request
+    previous_request = request
     return render(request, 'accounts/login.html')

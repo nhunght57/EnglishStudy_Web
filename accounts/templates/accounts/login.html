@@ -1,30 +1,103 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Login</title>
+    {% load staticfiles %}
+
+    <!-- General meta information -->
+    <title>Login Form by Oussama Afellad</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="robots" content="index, follow"/>
+    {#	<meta charset="utf-8" />#}
+    <!-- // General meta information -->
+
+
+    <!-- Load Javascript -->
+    <script type="text/javascript" src="{% static "accounts/js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "accounts/js/jquery.query-2.1.7.js" %}"></script>
+    <script type="text/javascript" src="{% static "accounts/js/rainbows.js" %}"></script>
+    <!-- // Load Javascipt -->
+
+    <!-- Load stylesheets -->
+    <link type="text/css" rel="stylesheet" href="{% static "accounts/css/style.css" %}" media="screen"/>
+    <!-- // Load stylesheets -->
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            $("#submit1").hover(
+                    function () {
+                        $(this).animate({"opacity": "0"}, "slow");
+                    },
+                    function () {
+                        $(this).animate({"opacity": "1"}, "slow");
+                    });
+        });
+
+
+    </script>
+
 </head>
 <body>
-<div id="authentication">
-    {% if user.is_authenticated %}
-        Welcome {{ user.username }}<br/>
-        <a href="{% url 'accounts:logout' %}">Logout</a>
-    {% else %}
-        <form ID="login" method="post" action="/accounts/auth/">
-            <table>
-                {% csrf_token %}
-                <tr>
-                    <td><input type="text" name="username" placeholder="username" size="15" maxlength="25"></td>
-                    <td><input type="password" name="password" placeholder="password" size="15" maxlength="25"></td>
-                    <td><input type="submit" name="dangnhap" value="Đăng Nhập"></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="keepsession" value="yes">Ghi nhớ</td>
-                    <td><a href="accounts/forgot">Quên mật khẩu</a></td>
-                    <td><a href="accounts/signup">Đăng ký</a></td>
-                </tr>
-            </table>
+
+<div id="wrapper">
+    <div id="wrappertop"></div>
+
+    <div id="wrappermiddle">
+
+        <h2>Login</h2>
+
+        <form method="post" action="{% url 'accounts:auth' %}">{% csrf_token %}
+            <div id="username_input">
+
+                <div id="username_inputleft"></div>
+
+                <div id="username_inputmiddle">
+                    <input type="text" name="username" id="url" placeholder="Username">
+                    <img id="url_user" src="{% static "accounts/images/mailicon.png" %}" alt="">
+                </div>
+
+                <div id="username_inputright"></div>
+
+            </div>
+
+            <div id="password_input">
+
+                <div id="password_inputleft"></div>
+
+                <div id="password_inputmiddle">
+                    <input type="password" name="password" id="url" placeholder="Password">
+                    <img id="url_password" src="{% static "accounts/images/passicon.png" %}" alt="">
+                </div>
+
+                <div id="password_inputright"></div>
+
+            </div>
+
+            <div id="submit">
+                <input type="image" src="{% static "accounts/images/submit_hover.png" %}" id="submit1" value="Sign In">
+                <input type="image" src="{% static "accounts/images/submit.png" %}" id="submit2" value="Sign In">
+            </div>
+
+            <div id="keepsession_checkbox"><input type="checkbox" name="keepsession" value="yes">Ghi nhớ</div>
+
+            <div id="links_left">
+
+                <a href="#">Forgot your Password?</a>
+
+            </div>
+
+            <div id="links_right"><a href="#">Not a Member Yet?</a></div>
         </form>
-    {% endif %}
+    </div>
+
+    <div id="wrapperbottom"></div>
+
+    <div id="powered">
+        <p>Powered by <a href="http://www.premiumfreebies.eu">Premiumfreebies Control Panel</a></p>
+    </div>
 </div>
+
 </body>
 </html>
