@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 # Application definition
 INSTALLED_APPS = (

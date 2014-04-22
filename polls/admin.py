@@ -16,7 +16,7 @@ class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
 
     #display individual fields
-    list_display = ('question_text', 'pub_date','was_published_recently')
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
 
     #an improvement to the Question change list page: Filters
     list_filter = ["pub_date"]

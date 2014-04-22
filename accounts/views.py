@@ -14,7 +14,7 @@ def auth(request):
     username = request.POST['username']
     password = request.POST['password']
 
-    # If user tick on "Ghi nhớ", request.POST['keepsession'] will be 'yes'
+    # If user tick on "Ghi nhớ", request.POST['keepsession'] will be 'yes', else it will be 'no'
     if 'keepsession' in request.POST:
         keepsession = request.POST['keepsession']
     else:
@@ -25,12 +25,10 @@ def auth(request):
     user = authenticate(username=username, password=password)
 
     if user is not None:
-        # Only keep session in maximum of 7 days
         # Do not use like "keepsession is 'yes'" here. It will always return false
         # since 'is' is identity testing and '==' is for equality testing
-        if keepsession == 'yes':
-            print("Expire in 7 days")
-            request.session.set_expiry(604800)
+        if keepsession == 'no':
+            request.session.set_expiry(0)
 
         login(request, user)
         print("User " + username + " logged in")
