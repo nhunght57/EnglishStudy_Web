@@ -7,8 +7,9 @@ body {
 	line-height: 22px;
 	font-family: arial, sans-serif;
 	color: #828282;
-	background: url(images/body.png) repeat 0 0;
+	background: url(images/BG.jpg) repeat 0 0;
 	min-width: 100%;
+	text-decoration: none;
 }
 
 /*font-family: 'Ubuntu', sans-serif;*/
@@ -18,6 +19,8 @@ a:hover { text-decoration: underline; }
 a img { border: 0; }
 a.more { color: #2b9208; text-decoration: underline; padding-left: 11px; background: url(images/arr-ico.png) no-repeat 0 5px; }
 a.more:hover { text-decoration: none;  }
+.buttom_login{ width: 120px; height:auto; background-color: #0C6}
+.buttom_signup{width:120px; height:auto; background-color:#999; float:right}
 input, textarea, select { font-size: 12px; font-family: arial, sans-serif; }
 textarea { overflow: auto; }
 .authentication{ float: right; }
@@ -34,8 +37,8 @@ article, aside, details, footer, header, menu, nav, section { display: block; }
 #logo { width: 233px; float: left; font-size: 0; line-height: 0;}
 #logo a { height: 45px; display: block;background: url(images/logo2.png) no-repeat 0 0;   text-indent: -4000px;  }
 
-.search { float: right; }
-.search input.field { border: 1px solid #d6d6d6; background: #ededed; width: 166px; height: 24px; line-height: 22px;  padding: 0px 10px; float: left; font-size: 11px; font-family: verdana, arial, helvetica, serif;  color: #bebebe;  border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px;}
+.search { float:inherit }
+.search input.field { border: 1px solid #d6d6d6; background: #ededed; width: 466px; height: 24px; line-height: 22px;  padding: 0px 10px; float: left; font-size: 11px; font-family: verdana, arial, helvetica, serif;  color: #bebebe;  border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px;}
 .search input.search-btn { width: 22px; height: 26px; margin-left: 3px;  border: 0; cursor: pointer; background: url(images/search-btn.png) no-repeat 0 0; float: left; font-size: 0; line-height: 0; text-indent: -4000px;  }
 
 #navigation { height: 52px; padding-top: 4px; font-family: 'Ubuntu', sans-serif; font-weight: 700; background: url(images/navigation.png) repeat-x 0 0; box-shadow: 0px -1px 2px rgba(0,0,0,0.1); -moz-box-shadow: 0px -1px 2px rgba(0,0,0,0.1); -webkit-box-shadow: 0px -1px 2px rgba(0,0,0,0.1); -o-box-shadow: 0px -1px 2px rgba(0,0,0,0.1);  }

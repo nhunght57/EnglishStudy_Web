@@ -29,20 +29,23 @@
 					<h1 id="logo"><a href="/">Curve</a></h1>
 					<!-- search -->
 					<div class="search">
+                    	
 						<form method="post">
 							<span class="field"><input type="text" class="field" value="keywords here ..." title="keywords here ..." /></span>
 							<input type="submit" class="search-btn" value="" />
 						</form>
+                      
 					</div>
 					<!-- end of search -->
                     <!-- authentication -->
                     <div class="authentication">
-                        {% if user.is_authenticated %}
-                            <p>Xin chào <a href={% url 'accounts:detail' %}>{{ user.username }}</a> (<a href={% url 'accounts:logout' %}>Thoát</a>)</p>
-                        {% else %}
-                            <a href="{% url 'accounts:login' %}">Đăng nhập</a>
-                        {% endif %}
+								{% if user.is_authenticated %}
+									<p>Xin chào <a href={% url 'accounts:detail' %}>{{ user.username }}</a> (<a href={% url 'accounts:logout' %}>Thoát</a>)</p>
+								{% else %}
+									<a href="{% url 'accounts:login' %}"><div class="buttom_login"><center><b>  Đăng nhập </b></center></div></a>
+								{% endif %}
                     </div>
+                    <a href="#"><div class="buttom_signup"><center><b>  Đăng ký thành viên </b></center></div></a>
                     <!-- end of authentication -->
 				</header>
 				<!-- end of header -->
