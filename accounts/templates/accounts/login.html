@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html>
 <head>
     {% load staticfiles %}
 
     <!-- General meta information -->
-    <title>Login Form by Oussama Afellad</title>
+    <title>Login</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="robots" content="index, follow"/>
@@ -46,7 +47,7 @@
 
     <div id="wrappermiddle">
 
-        <h2>Login</h2>
+        <h2>Đăng nhập</h2>
 
         <form method="post" action="{% url 'accounts:auth' %}">{% csrf_token %}
             <div id="username_input">
@@ -84,11 +85,11 @@
 
             <div id="links_left">
 
-                <a href="#">Forgot your Password?</a>
+                <a href="#">Quên mật khẩu?</a>
 
             </div>
 
-            <div id="links_right"><a href="#">Not a Member Yet?</a></div>
+            <div id="links_right"><a href="{% url "accounts:signup" %}">Đăng ký</a></div>
         </form>
     </div>
 

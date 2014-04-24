@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 
@@ -7,6 +8,7 @@ import datetime
 
 # I want to return http referer for 2 levels, so I declared this global variable here
 previous_request = None
+
 
 # Check for a valid login - handle POST request
 # Authentication system
@@ -43,6 +45,43 @@ def auth(request):
         return HttpResponse("<p>Invalid login<p>")
 
 
+# This method use for handling POST request in signup_view
+def create_account(request):
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    password_verify = request.POST['password_verify']
+
+    try:
+        user = User.objects.get_by_natural_key(username=username)
+    except User.DoesNotExist:
+        user = None
+
+    # Each condition in this list must be satisfied for the signing up process
+    conditions = {
+        'requested_username_is_available': user is None,
+        'valid_email_address': "@" in email,
+        'password_and_password_verify_is_matched': password == password_verify
+    }
+
+    if all(condition is True for condition in conditions.values()):
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.save()
+        return HttpResponse("<p>User " + username + " successfully created</p>")
+
+    elif conditions['requested_username_is_available'] is False:
+        return HttpResponse("<p>Requested username is already taken</p>")
+
+    elif conditions['valid_email_address'] is False:
+        return HttpResponse("<p>Requested e-mail address is not valid</p>")
+
+    elif conditions['password_and_password_verify_is_matched'] is False:
+        return HttpResponse("<p>Passwords did not match</p>")
+
+    else:
+        return HttpResponse("<p>Unknown error. Please check your info again</p>")
+
+
 # users will manage their account here
 def account_detail(request):
     return render(request, 'accounts/account_detail.html')
@@ -54,8 +93,13 @@ def logout_view(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-# user will login by using this view
+# user can login by using this view
 def login_view(request):
     global previous_request
     previous_request = request
     return render(request, 'accounts/login.html')
+
+
+# user can sign up by using this view
+def signup(request):
+    return render(request, 'accounts/signup.html')

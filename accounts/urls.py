@@ -16,4 +16,10 @@ urlpatterns = patterns('',
                        # /accounts/login/
                        url(r'^login', 'accounts.views.login_view', name='login'),
 
+                       # /accounts/signup/
+                       url(r'^signup', 'accounts.views.signup', name='signup'),
+
+                       # /accounts/create_account
+                       url(r'^create_account', 'accounts.views.create_account', name='create_account'),
+
 )
