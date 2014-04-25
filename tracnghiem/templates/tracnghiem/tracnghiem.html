@@ -1,44 +1,19 @@
 <!DOCTYPE HTML>
+{% extends "skeleton.html" %}
 
-{#{% extends base.html %}#}
 
-<html>
-<head>
-    {% load staticfiles %}
+{% load staticfiles %}
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="author" content="nhung"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'tracnghiem/CSS/home.css' %}"/>
-    <title>Trắc nghiệm</title>
-</head>
+{% block title %}Trắc Nghiệm{% endblock %}
 
-<body background="background.jpg">
-<div id="menu">
-    <ul>
-        <li id=menu1><a href="/">I &hearts; English</a></li>
-        <li id=menu1><a href="/tracnghiem">Trắc nghiệm</a></li>
-    </ul>
+{% block content_of_website %}
 
-</div>
-<div id="head">
-    <div class="home"><a href="/">
-        <center><h1>We <span>&hearts;</span> English</h1></center>
-    </a></div>
-    <div id="authentication">
-        {% if user.is_authenticated %}
-            <p>Xin chào <a href={% url 'accounts:detail' %}>{{ user.username }}</a> (<a href={% url 'accounts:logout' %}>Thoát</a>)</p>
-        {% else %}
-            <a href="{% url 'accounts:login' %}">Đăng nhập</a>
-        {% endif %}
-    </div>
-</div>
-
-<div class="left"></div>
-<div class="right">
+<div>
     {% if user.is_authenticated %}
         {% if list_of_questions %}
             <form method="post" action="{% url 'tracnghiem:post' %}">
                 {% csrf_token %}
+                <center> Bài kiểm tra số 1 </center>
                 <ul>
                     {% for question in list_of_questions %}
                         <li>
@@ -64,5 +39,4 @@
         <p>Bạn chưa đăng nhập</p>
     {% endif %}
 </div>
-</body>
-</html>
+{% endblock %}

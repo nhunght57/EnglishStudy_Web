@@ -43,7 +43,7 @@
 									<p>Xin chào <a href={% url 'accounts:detail' %}>{{ user.username }}</a> (<a href={% url 'accounts:logout' %}>Thoát</a>)</p>
 								{% else %}
 									<a href="{% url 'accounts:login' %}"><div class="buttom_login"><center><b>  Đăng nhập </b></center></div></a>
-								    <a href="{% url 'accounts:signup' %}"><div class="buttom_signup"><center><b>  Đăng ký thành viên </b></center></div></a>
+								    <a href="#"><div class="buttom_signup"><center><b>  Đăng ký thành viên </b></center></div></a>
                                 {% endif %}
                     </div>
                     <!-- end of authentication -->
@@ -90,7 +90,6 @@
 								<li><a href="#">Video</a></li>
 								<li><a href="#">Bài hát tiếng anh</a></li>
 								<li><a href="#">Liên hệ</a></li>
-								<li><a href="#">Contacts</a></li>
 							</ul>
 						</nav>
 						<p class="copy">&copy; Copyright 2014 English Study Web <span>|</span> <strong>Design by Group 8, K57CA-UET-VNU,H</a></strong>
