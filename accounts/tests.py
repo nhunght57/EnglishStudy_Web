@@ -7,6 +7,19 @@ from django.core.urlresolvers import reverse
 # from accounts.views import auth
 
 # Create your tests here.
+
+
+def login_shortcut(self, username, password):
+    return self.client.login(username=username, password=password)
+
+def signup_shortcut(self, username, email, password, password_verify):
+    return self.client.post("/accounts/create_account/", {
+        'username': username,
+        'email': email,
+        'password': password,
+        'password_verify': password_verify
+    })
+
 class AuthenticationTest(TestCase):
     # set up something to test here, this will be created and destroyed automatically on each time test is running
     def setUp(self):
@@ -35,9 +48,7 @@ class AuthenticationTest(TestCase):
 
 
     def test_login_with_invalid_credentials(self):
-        username = "admin"
-        password = "123456"
-        self.client.login(username=username, password=password)
+        login_shortcut(self, "admin", "123456")
 
         response = self.client.get(reverse('accounts:detail'))
         self.assertEquals(response.status_code, 200)
@@ -45,35 +56,50 @@ class AuthenticationTest(TestCase):
 
 
     def test_login_with_valid_credentials(self):
-        username = "example"
-        password = "example"
-        self.client.login(username=username, password=password)
+        login_shortcut(self, "example", "example")
 
         response = self.client.get(reverse('accounts:detail'))
-        self.assertContains(response, "You're logged in as " + username)
+        self.assertContains(response, "You're logged in as example")
         self.assertNotContains(response, "You're not logged in")
 
 
     def test_logout_from_logged_in(self):
-        username = "example"
-        password = "example"
-        self.client.login(username=username, password=password)
+        login_shortcut(self, "example", "example")
 
         self.client.get(reverse('accounts:logout'))
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "You're not logged in")
-        self.assertNotContains(response, "You're logged in as " + username)
+        self.assertNotContains(response, "You're logged in")
 
-		
+
     def test_logout_without_logged_in(self):
         self.client.get(reverse('accounts:logout'))
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "You're not logged in")
-        self.assertNotContains(response, "You're logged in as ")
+        self.assertNotContains(response, "You're logged in as")
 
 
-    # def test_logout_when_browser_closed(self):
-        # simulate browser closing here
-        # response = self.client.get(reverse('accounts:detail'))
-        # self.assertContains(response, "You're not logged in")
-        # self.assertNotContains(response, "You're logged in as ")
+    def test_signup_with_correct_info(self):
+        response = signup_shortcut(self, "example_for_signup", "example@example.com", "example", "example")
+        self.assertContains(response, "successfully created")
+        self.assertNotContains(response, "e-mail address is not valid")
+
+
+    def test_signup_with_invalid_email(self):
+        response = signup_shortcut(self, "example_for_signup", "example1234", "example", "example")
+        self.assertContains(response, "e-mail address is not valid")
+        self.assertNotContains(response, "successfully created")
+
+
+    def test_signup_with_already_taken_username(self):
+        signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example")
+        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example")
+        self.assertContains(response, "username is already taken")
+        self.assertNotContains(response, "successfully created")
+
+
+    def test_signup_with_passwords_not_match(self):
+        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example123456", "example")
+        self.assertContains(response, "Passwords did not match")
+        self.assertNotContains(response, "successfully created")
+
