@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
+from accounts.models import UserProfile
 import datetime
 
 # Create your views here.
@@ -46,11 +47,20 @@ def auth(request):
 
 
 # This method use for handling POST request in signup_view
+
+def create_new_user_object(username, email, password, birthday, home):
+    user = User.objects.create_user(username=username, email=email, password=password)
+    user.profile = UserProfile(birthday = birthday, home = home)
+    user.save()
+    user.profile.save()
+
 def create_account(request):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
     password_verify = request.POST['password_verify']
+    birthday = request.POST['birthday']
+    home = request.POST['home']
 
     try:
         user = User.objects.get_by_natural_key(username=username)
@@ -65,8 +75,7 @@ def create_account(request):
     }
 
     if all(condition is True for condition in conditions.values()):
-        user = User.objects.create_user(username=username, email=email, password=password)
-        user.save()
+        create_new_user_object(username, email, password, birthday, home)
         return HttpResponse("<p>User " + username + " successfully created</p>")
 
     elif conditions['requested_username_is_available'] is False:

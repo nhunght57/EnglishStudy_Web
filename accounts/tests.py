@@ -12,12 +12,14 @@ from django.core.urlresolvers import reverse
 def login_shortcut(self, username, password):
     return self.client.login(username=username, password=password)
 
-def signup_shortcut(self, username, email, password, password_verify):
+def signup_shortcut(self, username, email, password, password_verify, birthday, home):
     return self.client.post("/accounts/create_account/", {
         'username': username,
         'email': email,
         'password': password,
-        'password_verify': password_verify
+        'password_verify': password_verify,
+        'birthday': birthday,
+        'home': home
     })
 
 class AuthenticationTest(TestCase):
@@ -80,26 +82,31 @@ class AuthenticationTest(TestCase):
 
 
     def test_signup_with_correct_info(self):
-        response = signup_shortcut(self, "example_for_signup", "example@example.com", "example", "example")
+        response = signup_shortcut(self, "example_for_signup", "example@example.com", "example", "example",
+                                   "1994-08-22",'Hanoi')
         self.assertContains(response, "successfully created")
         self.assertNotContains(response, "e-mail address is not valid")
 
 
     def test_signup_with_invalid_email(self):
-        response = signup_shortcut(self, "example_for_signup", "example1234", "example", "example")
+        response = signup_shortcut(self, "example_for_signup", "example1234", "example", "example",
+                                    "1994-08-22",'Hanoi')
         self.assertContains(response, "e-mail address is not valid")
         self.assertNotContains(response, "successfully created")
 
 
     def test_signup_with_already_taken_username(self):
-        signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example")
-        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example")
+        signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example",
+                        "1994-08-22",'Hanoi')
+        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example",
+                                   "1994-08-22",'Hanoi')
         self.assertContains(response, "username is already taken")
         self.assertNotContains(response, "successfully created")
 
 
     def test_signup_with_passwords_not_match(self):
-        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example123456", "example")
+        response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example123456", "example",
+                                   "1994-08-22",'Hanoi')
         self.assertContains(response, "Passwords did not match")
         self.assertNotContains(response, "successfully created")
 
