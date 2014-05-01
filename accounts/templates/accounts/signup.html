@@ -6,14 +6,19 @@
 <body>
 <div id="authentication">
     <form ID="login" method="post" action="{% url 'accounts:create_account' %}">{% csrf_token %}
-        <td><input type="text" name="username" placeholder="Username" size="15" maxlength="25"></td>
-        <td><input type="email" name="email" placeholder="E-mail" size="15" maxlength="40"></td>
-        <td><input type="password" name="password" placeholder="Password" size="15" maxlength="25"></td>
-        <td><input type="password" name="password_verify" placeholder="Verify" size="15" maxlength="25"></td>
-        <td><input type="date" name="birthday" placeholder="Date of birth" size="15" maxlength="25"></td>
-        <td><input type="text" name="home" size="15" placeholder="home" maxlength="25"></td>
-        <td><input type="submit" name="signup" value="Đăng ký"></td>
-
+        <table>
+            <tr>
+                <td><input type="text" name="username" placeholder="Tên đăng nhập" size="15" maxlength="25"></td>
+                <td><input type="password" name="password" placeholder="Mật khẩu" size="15" maxlength="25"></td>
+                <td><input type="password" name="password_verify" placeholder="Mật khẩu kiểm tra" size="15" maxlength="25"></td>
+            </tr>
+            <tr>
+                <td><input type="email" name="email" placeholder="E-mail" size="15" maxlength="40"></td>
+                <td><input type="date" name="birthday" placeholder="Ngày sinh" size="15" maxlength="25"></td>
+                <td><input type="text" name="home" size="15" placeholder="Địa chỉ" maxlength="25"></td>
+            </tr>
+            <tr><td><input type="submit" name="signup" value="Đăng ký"></td></tr>
+        </table>
     </form>
 </div>
 </body>

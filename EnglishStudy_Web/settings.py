@@ -42,7 +42,8 @@ INSTALLED_APPS = (
 
     'polls',
     'tracnghiem',
-    'accounts'
+    'accounts',
+    'comment',
 )
 
 MIDDLEWARE_CLASSES = (

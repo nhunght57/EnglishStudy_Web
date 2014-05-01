@@ -30,7 +30,7 @@ def post(request):
         count_questions = count_questions + 1
         question = QUESTION + str(count_questions)
 
-    change_user_score(request.user,score)
+    change_user_score(request.user, score)
     return HttpResponse("<p> your score  at this test is " +
                         str(score) +
                         " and your total... is "+str(request.user.profile.total_score) + "</p>")

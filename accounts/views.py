@@ -43,7 +43,7 @@ def auth(request):
 
     else:
         print("Authentication failed")
-        return HttpResponse("<p>Invalid login<p>")
+        return HttpResponse("<p>Tên đăng nhập hoặc mật khẩu không đúng<p>")
 
 
 # This method use for handling POST request in signup_view
@@ -76,19 +76,20 @@ def create_account(request):
 
     if all(condition is True for condition in conditions.values()):
         create_new_user_object(username, email, password, birthday, home)
-        return HttpResponse("<p>User " + username + " successfully created</p>")
-
-    elif conditions['requested_username_is_available'] is False:
-        return HttpResponse("<p>Requested username is already taken</p>")
-
-    elif conditions['valid_email_address'] is False:
-        return HttpResponse("<p>Requested e-mail address is not valid</p>")
-
-    elif conditions['password_and_password_verify_is_matched'] is False:
-        return HttpResponse("<p>Passwords did not match</p>")
+        return HttpResponse("<p>" + username + " đã đăng ký thành công</p>")
 
     else:
-        return HttpResponse("<p>Unknown error. Please check your info again</p>")
+        error_message = "Có lỗi xảy ra. Vui lòng kiểm tra lại thông tin của bạn:<p>"
+        if conditions['requested_username_is_available'] is False:
+            error_message += "Tên đăng nhập đã tồn tại<br/>"
+
+        if conditions['valid_email_address'] is False:
+            error_message += "Địa chỉ e-mail không hợp lệ<br/>"
+
+        if conditions['password_and_password_verify_is_matched'] is False:
+            error_message += "Mật khẩu kiểm tra không khớp<br/>"
+
+        return HttpResponse(error_message + "</p>")
 
 
 # users will manage their account here
