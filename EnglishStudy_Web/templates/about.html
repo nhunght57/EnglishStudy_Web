@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block navbar_li %}
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="{% url 'tracnghiem:index' %}">Trắc nghiệm</a></li>
+    <li class="active"><a href="/about">Liên hệ</a></li>
+{% endblock %}
+
+{% block content_container %}
+<h3>Title</h3>
+    <p>Không có gì thú vị ở đây cả</p>
+{% endblock %}
