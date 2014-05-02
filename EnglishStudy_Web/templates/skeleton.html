@@ -10,10 +10,7 @@
 	<link rel="stylesheet" href="{% static "css/flexslider.css" %}" type="text/css" media="all" />
 	<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel='stylesheet' type='text/css' />
 	
-	<script src="{% static "js/jquery-1.8.0.min.js" %}" type="text/javascript"></script>
-	<!--[if lt IE 9]>
-		<script src="js/modernizr.custom.js"></script>
-	<![endif]-->
+	<script src="{% static "js/jquery-2.1.0.min.js" %}" type="text/javascript"></script>
 	<script src="{% static "js/jquery.flexslider-min.js" %}" type="text/javascript"></script>
 	<script src="{% static "js/functions.js" %}" type="text/javascript"></script>
 </head>
@@ -42,8 +39,8 @@
 								{% if user.is_authenticated %}
 									<p>Xin chào <a href={% url 'accounts:detail' %}>{{ user.username }}</a> (<a href={% url 'accounts:logout' %}>Thoát</a>)</p>
 								{% else %}
-									<a href="{% url 'accounts:login' %}"><div class="buttom_login"><center><b>  Đăng nhập </b></center></div></a>
-								    <a href="{% url 'accounts:signup' %}"><div class="buttom_signup"><center><b>  Đăng ký thành viên </b></center></div></a>
+									<a href="{% url 'accounts:login' %}"><div class="buttom_login"><center><b>Đăng nhập</b></center></div></a>
+								    <a href="{% url 'accounts:signup' %}"><div class="buttom_signup"><center><b>Đăng ký thành viên</b></center></div></a>
                                 {% endif %}
                     </div>
                     <!-- end of authentication -->
