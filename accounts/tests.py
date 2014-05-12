@@ -23,7 +23,7 @@ def signup_shortcut(self, username, email, password, password_verify, birthday, 
     })
 
 class AuthenticationTest(TestCase):
-    # set up something to test here, this will be created and destroyed automatically on each time test is running
+    # set up something to tests here, this will be created and destroyed automatically on each time tests is running
     def setUp(self):
         user = User.objects.create_user(username='example', password='example')
         user.save()

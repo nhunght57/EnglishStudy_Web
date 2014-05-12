@@ -66,16 +66,16 @@ class QuestionMethodTest(TestCase):
         self.assertQuerysetEqual(response.context['all_question_list'], ['<Question: past question?>'])
 
 
-    # with 3 questions, test the order of them
+    # with 3 questions, tests the order of them
     def test_index_view_with_some_past_questions(self):
-        create_question("test past question 1?", -1, -7)
-        create_question("test past question 2?", 0, -15)
-        create_question("test past question 3?", 0, -23)
+        create_question("tests past question 1?", -1, -7)
+        create_question("tests past question 2?", 0, -15)
+        create_question("tests past question 3?", 0, -23)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(response.context['all_question_list'],
-                                 ['<Question: test past question 2?>',
-                                  '<Question: test past question 3?>',
-                                  '<Question: test past question 1?>'])
+                                 ['<Question: tests past question 2?>',
+                                  '<Question: tests past question 3?>',
+                                  '<Question: tests past question 1?>'])
 
 
 class QuestionDetailViewTest(TestCase):

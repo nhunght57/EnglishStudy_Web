@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.core.urlresolvers import reverse
@@ -23,6 +24,7 @@ class TracnghiemMethodsTest(TestCase):
     # While logged in, but there are no questions in database, an appropriate message should be displayed
     # instead of a blank page
     def test_view_with_no_questions_logged_in(self):
+
         response = self.client.get(reverse('tracnghiem:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Không có gì")

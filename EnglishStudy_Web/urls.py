@@ -3,6 +3,8 @@ from django.contrib import admin
 
 from EnglishStudy_Web import views
 
+admin.autodiscover()
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'EnglishStudy_Web.views.home', name='home'),
@@ -25,3 +27,4 @@ urlpatterns = patterns('',
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns += staticfiles_urlpatterns()
+
