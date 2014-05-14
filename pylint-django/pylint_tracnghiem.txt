@@ -1,0 +1,2 @@
+************* Module tracnghiem
+C:  1, 0: Missing module docstring (missing-docstring)

@@ -1,0 +1,10 @@
+************* Module accounts.urls
+C: 11, 0: Line too long (85/80) (line-too-long)
+C: 14, 0: Line too long (88/80) (line-too-long)
+C: 17, 0: Line too long (81/80) (line-too-long)
+C: 23, 0: Line too long (103/80) (line-too-long)
+C: 25, 0: Wrong continued indentation.
+)^                     | (bad-continuation)
+C: 25, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  3, 0: Unused import include (unused-import)

@@ -1,0 +1,33 @@
+************* Module polls.urls
+C:  1, 0: Exactly one space required after comma
+from django.conf.urls import patterns, url,include
+                                          ^ (bad-whitespace)
+C:  6, 0: Wrong continued indentation.
+    # /polls/
+    ^                  | (bad-continuation)
+C:  7, 0: Wrong continued indentation.
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    ^                  | (bad-continuation)
+C:  9, 0: Wrong continued indentation.
+    # /polls/<id>
+    ^                  | (bad-continuation)
+C: 10, 0: Wrong continued indentation.
+    url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
+    ^                  | (bad-continuation)
+C: 12, 0: Wrong continued indentation.
+    # /polls/<id>/results/
+    ^                  | (bad-continuation)
+C: 13, 0: Wrong continued indentation.
+    url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
+    ^                  | (bad-continuation)
+C: 15, 0: Wrong continued indentation.
+    # /polls/<id>/vote/
+    ^                  | (bad-continuation)
+C: 16, 0: Wrong continued indentation.
+    url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
+    ^                  | (bad-continuation)
+C: 20, 0: Wrong continued indentation.
+)
+^                     | (bad-continuation)
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  1, 0: Unused import include (unused-import)

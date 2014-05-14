@@ -1,0 +1,5 @@
+************* Module tracnghiem.models
+C: 18, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 12, 0: Missing class docstring (missing-docstring)

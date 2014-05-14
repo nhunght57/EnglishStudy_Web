@@ -1,0 +1,11 @@
+************* Module tracnghiem.admin
+C: 15, 0: Exactly one space required after comma
+        (None,               {"fields": ["question_text"]}),
+             ^ (bad-whitespace)
+C: 30, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  5, 0: Reimport 'admin' (imported line 1) (reimported)
+C:  9, 0: Missing class docstring (missing-docstring)
+R:  9, 0: Too many ancestors (8/7) (too-many-ancestors)
+C: 13, 0: Missing class docstring (missing-docstring)
+R: 13, 0: Too many public methods (58/20) (too-many-public-methods)

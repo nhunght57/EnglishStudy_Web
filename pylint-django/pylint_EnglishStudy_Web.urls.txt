@@ -1,0 +1,42 @@
+************* Module EnglishStudy_Web.urls
+C:  7, 0: Wrong continued indentation.
+    # Examples:
+    ^                  | (bad-continuation)
+C: 11, 0: Wrong continued indentation.
+    url(r'^$', views.IndexView.as_view(), name='home'),
+    ^                  | (bad-continuation)
+C: 13, 0: Wrong continued indentation.
+    # /tracnghiem
+    ^                  | (bad-continuation)
+C: 14, 0: Wrong continued indentation.
+    url(r'^tracnghiem/', include('tracnghiem.urls', namespace='tracnghiem')),
+    ^                  | (bad-continuation)
+C: 16, 0: Wrong continued indentation.
+    # /accounts
+    ^                  | (bad-continuation)
+C: 17, 0: Wrong continued indentation.
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    ^                  | (bad-continuation)
+C: 19, 0: Wrong continued indentation.
+    # /about
+    ^                  | (bad-continuation)
+C: 20, 0: Wrong continued indentation.
+    url(r'^about/', 'EnglishStudy_Web.views.about', name='about'),
+    ^                  | (bad-continuation)
+C: 22, 0: Wrong continued indentation.
+    # /polls - example polls application
+    ^                  | (bad-continuation)
+C: 23, 0: Wrong continued indentation.
+    url(r'^polls/', include('polls.urls', namespace='polls')),
+    ^                  | (bad-continuation)
+C: 25, 0: Wrong continued indentation.
+    # /admin - Django built-in interactive Admin page
+    ^                  | (bad-continuation)
+C: 26, 0: Wrong continued indentation.
+    url(r'^admin/', include(admin.site.urls)),
+    ^                  | (bad-continuation)
+C: 27, 0: Wrong continued indentation.
+)
+^                     | (bad-continuation)
+C: 30, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)

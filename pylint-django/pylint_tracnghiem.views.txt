@@ -1,0 +1,13 @@
+************* Module tracnghiem.views
+C: 36, 0: Line too long (96/80) (line-too-long)
+C: 44, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  7, 0: Missing class docstring (missing-docstring)
+R:  7, 0: Too many ancestors (8/7) (too-many-ancestors)
+C: 14, 0: Missing function docstring (missing-docstring)
+C: 20, 0: Missing function docstring (missing-docstring)
+C: 22, 4: Invalid variable name "QUESTION" (invalid-name)
+C: 40, 0: Missing class docstring (missing-docstring)
+R: 40, 0: Too many ancestors (8/7) (too-many-ancestors)
+W:  4, 0: Unused import HttpResponseRedirect (unused-import)
+W:  1, 0: Unused import render (unused-import)

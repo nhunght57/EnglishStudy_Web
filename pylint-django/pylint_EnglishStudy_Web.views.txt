@@ -1,0 +1,7 @@
+************* Module EnglishStudy_Web.views
+C: 13, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+R:  6, 0: Too many ancestors (8/7) (too-many-ancestors)
+C: 12, 0: Missing function docstring (missing-docstring)
+W:  2, 0: Unused import HttpResponse (unused-import)

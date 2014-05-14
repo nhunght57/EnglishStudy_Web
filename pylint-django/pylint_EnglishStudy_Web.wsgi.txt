@@ -1,0 +1,2 @@
+************* Module EnglishStudy_Web.wsgi
+C: 14, 0: Invalid constant name "application" (invalid-name)

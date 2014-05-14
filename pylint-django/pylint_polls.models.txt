@@ -1,0 +1,6 @@
+************* Module polls.models
+C: 29, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  8, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing method docstring (missing-docstring)
+C: 23, 0: Missing class docstring (missing-docstring)

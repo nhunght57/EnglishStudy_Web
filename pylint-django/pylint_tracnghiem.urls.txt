@@ -1,0 +1,17 @@
+************* Module tracnghiem.urls
+C:  9, 0: Wrong continued indentation.
+    # /tracnghiem/
+    ^                  | (bad-continuation)
+C: 10, 0: Wrong continued indentation.
+    url(r'^$', views.TracNghiemView.as_view(), name='index'),
+    ^                  | (bad-continuation)
+C: 12, 0: Wrong continued indentation.
+    # /tracnghiem/post/
+    ^                  | (bad-continuation)
+C: 13, 0: Wrong continued indentation.
+    url(r'^post', 'tracnghiem.views.post', name='post'),
+    ^                  | (bad-continuation)
+C: 15, 0: Wrong continued indentation.
+    )    ^                 | (bad-continuation)
+C: 15, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)

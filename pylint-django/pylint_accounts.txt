@@ -1,0 +1,2 @@
+************* Module accounts
+C:  1, 0: Missing module docstring (missing-docstring)

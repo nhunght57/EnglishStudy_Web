@@ -55,7 +55,6 @@ class AuthenticationTest(TestCase):
         login_shortcut(self, "admin", "123456")
 
         response = self.client.get(reverse('accounts:detail'))
-        self.assertEquals(response.status_code, 200)
         self.assertContains(response, "Bạn chưa đăng nhập")
 
 

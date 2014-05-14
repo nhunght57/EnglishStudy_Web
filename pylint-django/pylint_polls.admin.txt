@@ -1,0 +1,9 @@
+************* Module polls.admin
+C: 11, 0: Exactly one space required after comma
+        (None,               {"fields": ["question_text"]}),
+             ^ (bad-whitespace)
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  5, 0: Missing class docstring (missing-docstring)
+R:  5, 0: Too many ancestors (8/7) (too-many-ancestors)
+C:  9, 0: Missing class docstring (missing-docstring)
+R:  9, 0: Too many public methods (58/20) (too-many-public-methods)
