@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import datetime
 
 from django.test import TestCase
@@ -48,7 +50,7 @@ class AuthenticationTest(TestCase):
         self.client.login(username='', password='')
 
         response = self.client.get(reverse('accounts:detail'))
-        self.assertContains(response, "You haven't log in")
+        self.assertContains(response, "you haven't log in")
 
 
     def test_login_with_invalid_credentials(self):
@@ -56,7 +58,7 @@ class AuthenticationTest(TestCase):
 
         response = self.client.get(reverse('accounts:detail'))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, "You haven't log in")
+        self.assertContains(response, "you haven't log in")
 
 
     def test_login_with_valid_credentials(self):
@@ -64,7 +66,7 @@ class AuthenticationTest(TestCase):
 
         response = self.client.get(reverse('accounts:detail'))
         self.assertContains(response, "Hi, example")
-        self.assertNotContains(response, "You haven't log in")
+        self.assertNotContains(response, "you haven't log in")
 
 
     def test_logout_from_logged_in(self):
@@ -72,29 +74,29 @@ class AuthenticationTest(TestCase):
 
         self.client.get(reverse('accounts:logout'))
         response = self.client.get(reverse('accounts:detail'))
-        self.assertContains(response, "You haven't log in")
+        self.assertContains(response, "you haven't log in")
         self.assertNotContains(response, "Hi")
 
 
     def test_logout_without_logged_in(self):
         self.client.get(reverse('accounts:logout'))
         response = self.client.get(reverse('accounts:detail'))
-        self.assertContains(response, "You haven't log in")
+        self.assertContains(response, "you haven't log in")
         self.assertNotContains(response, "Hi")
 
 
     def test_signup_with_correct_info(self):
         response = signup_shortcut(self, "example_for_signup", "example@example.com", "example", "example",
                                    "1994-08-22", 'Hanoi')
-        self.assertContains(response, "đăng ký thành công")
-        self.assertNotContains(response, "địa chỉ e-mail không hợp lệ")
+        self.assertContains(response, "registry successfully")
+        self.assertNotContains(response, "email address is invalid")
 
 
     def test_signup_with_invalid_email(self):
         response = signup_shortcut(self, "example_for_signup", "example1234", "example", "example",
                                    "1994-08-22", 'Hanoi')
-        self.assertContains(response, "Địa chỉ e-mail không hợp lệ")
-        self.assertNotContains(response, "đăng ký thành công")
+        self.assertContains(response, "email address is invalid")
+        self.assertNotContains(response, "registry successfully")
 
 
     def test_signup_with_already_taken_username(self):
@@ -102,13 +104,13 @@ class AuthenticationTest(TestCase):
                         "1994-08-22", 'Hanoi')
         response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example", "example",
                                    "1994-08-22", 'Hanoi')
-        self.assertContains(response, "Tên đăng nhập đã tồn tại")
-        self.assertNotContains(response, "đăng ký thành công")
+        self.assertContains(response, "username is not available")
+        self.assertNotContains(response, "registry successfully")
 
 
     def test_signup_with_passwords_not_match(self):
         response = signup_shortcut(self, "example_for_signup", "example1234@a.com", "example123456", "example",
                                    "1994-08-22", 'Hanoi')
-        self.assertContains(response, "Mật khẩu kiểm tra không khớp")
-        self.assertNotContains(response, "đăng ký thành công")
+        self.assertContains(response, "password not matched")
+        self.assertNotContains(response, "registry successfully")
 
