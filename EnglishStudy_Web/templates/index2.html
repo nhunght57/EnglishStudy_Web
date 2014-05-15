@@ -3,90 +3,107 @@
 
 {% block title %}English Study Web{% endblock %}
 
- {% block content_of_website %}
-<div class="m-slider">
-					<div class="slider-holder">
-						<span class="slider-shadow"></span>
-						<span class="slider-b"></span>
-						<div class="slider flexslider">
-							<ul class="slides">
-								<li>
-									<div class="img-holder">
-										<img src={% static "CSS/images/img001.png" %} />
-									</div>
-									
-								</li>
-								<li>
-									<div class="img-holder">
-										<img src={% static "CSS/images/img1.png" %} alt="" />
-									</div>
-									
-								</li>
-								<li>
-									<div class="img-holder">
-										<img src={% static "CSS/images/img3.png" %} alt="" />
-									</div>
-									
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>		
-				<!-- end of slider -->
-				<!-- main -->
-				<div class="main">
-					<a href="#" class="m-btn-grey grey-btn">request a demo</a>
-					<section class="cols">
-						<div class="col">
-							<img src={% static "CSS/images/tracnghiem.png" %} alt="" />
-							<div class="col-cnt">
-								<h2>Bài Luyện Tiếng Anh</h2>
-								<p>Bài luyện Tiếng Anh giúp cho các bạn củng cố thêm kiến thức,<br />rèn tuy duy, phản xạ Tiếng Anh</p>
-								<a href="#" class="more">xem chi tiết</a>
-							</div>
-						</div>
-						<div class="col">
-							<img src={% static "css/images/video.png" %} alt="" />
-							<div class="col-cnt">
-								<h2>Bài Giảng</h2>
-								<p>English Study Web cung cấp cho các bạn đầy đủ những video bài giảng tiếng anh từ các giáo viên, giảng viên có nhiều năm kinh nghiệm giảng dạy</p>
-								<a href="#" class="more">xem chi tiết</a>
-							</div>
-						</div>
-						<div class="col">
-							<img src={% static "css/images/nghenhac.gif" %} alt="" />
-							<div class="col-cnt">
-								<h2>Bài hát tiếng anh</h2>
-								<p>Bạn cảm thấy kĩ năng nghe của mình còn kém? Hãy luyện nghe tiếng anh qua các bài hát tiếng anh</p>
-								<a href="#" class="more">xem chi tiết</a>
-							</div>
-						</div>
-						<div class="cl">&nbsp;</div>
-					</section>
-					<section class="post">
-						<div class="video-holder">
-							<iframe width="435" height="243" src="//www.youtube.com/embed/hLQl3WQQoQ0" frameborder="0" allowfullscreen></iframe>
-						</div>
+{% block content_of_website %}
+    <div class="m-slider">
+        <div class="slider-holder">
+            <span class="slider-shadow"></span>
+            <span class="slider-b"></span>
 
-						<div class="post-cnt">
-							<h2>Tại sao bạn nên học tiếng anh trực tuyến?</h2>
-							<p>Bạn muốn nâng cao trình độ tiếng anh, nhưng lại không có thời gian lên lớp? <br /> Bạn muốn được học Tiếng Anh mọi lúc, mọi nơi. English Study Web sẽ giúp bạn làm được điều mà các bạn mong muốn mà không hề mất một khoản chi phí nào với: </p>
+            <div class="slider flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="img-holder">
+                            <img src="{% static "images/img001.png" %}" alt=""/>
+                        </div>
 
-							<ul>
-								<li>Hệ thống bài giảng thông minh, phong phú, liên tục được cập nhật</li>
-								<li>Đội ngũ giáo viên trình độ cao sẽ liên tục hỗ trợ, đánh giá, chấm điểm bài học, sửa sai và giúp bạn tiến bộ từng ngày.</li>
-								<li>Ôn tập và học lại kiến thức theo trình độ của mình</li>
-								<li>Chia sẻ, học hỏi và thi đua với cộng đồng thành viên English Study Web</li>
-							</ul>
-						</div>
-						<div class="cl">&nbsp;</div>
-					</section>
+                    </li>
+                    <li>
+                        <div class="img-holder">
+                            <img src="{% static "images/img1.png" %}" alt=""/>
+                        </div>
 
-					<section class="testimonial">
+                    </li>
+                    <li>
+                        <div class="img-holder">
+                            <img src="{% static "images/img3.png" %}" alt=""/>
+                        </div>
 
-						<p><strong class="quote">“Trên trái đất làm gì có đường.<br /> Người ta đi mãi thì thành đường thôi.”</strong></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end of slider -->
+    <!-- main -->
+    <div class="main">
+        <a href="#" class="m-btn-grey grey-btn">request a demo</a>
+        <section class="cols">
+            <div class="col">
+                <img src="{% static "images/tracnghiem.png" %}" alt=""/>
 
-						<p class="author">Cố hương - Lỗ Tẫn</p>
-					</section>
-				</div>
-                {% endblock %}
+                <div class="col-cnt">
+                    <h2>Bài Luyện Tiếng Anh</h2>
+
+                    <p>Bài luyện Tiếng Anh giúp cho các bạn củng cố thêm kiến thức,<br/>rèn tuy duy, phản xạ Tiếng Anh
+                    </p>
+                    <a href="#" class="more">xem chi tiết</a>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{% static "images/video.png" %}" alt=""/>
+
+                <div class="col-cnt">
+                    <h2>Bài Giảng</h2>
+
+                    <p>English Study Web cung cấp cho các bạn đầy đủ những video bài giảng tiếng anh từ các giáo viên,
+                        giảng viên có nhiều năm kinh nghiệm giảng dạy</p>
+                    <a href="#" class="more">xem chi tiết</a>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{% static "images/nghenhac.gif" %}" alt=""/>
+
+                <div class="col-cnt">
+                    <h2>Bài hát tiếng anh</h2>
+
+                    <p>Bạn cảm thấy kĩ năng nghe của mình còn kém? Hãy luyện nghe tiếng anh qua các bài hát tiếng
+                        anh</p>
+                    <a href="#" class="more">xem chi tiết</a>
+                </div>
+            </div>
+            <div class="cl">&nbsp;</div>
+        </section>
+        <section class="post">
+            <div class="video-holder">
+                <iframe width="435" height="243" src="//www.youtube.com/embed/hLQl3WQQoQ0" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+
+            <div class="post-cnt">
+                <h2>Tại sao bạn nên học tiếng anh trực tuyến?</h2>
+
+                <p>Bạn muốn nâng cao trình độ tiếng anh, nhưng lại không có thời gian lên lớp? <br/> Bạn muốn được học
+                    Tiếng Anh mọi lúc, mọi nơi. English Study Web sẽ giúp bạn làm được điều mà các bạn mong muốn mà
+                    không hề mất một khoản chi phí nào với: </p>
+
+                <ul>
+                    <li>Hệ thống bài giảng thông minh, phong phú, liên tục được cập nhật</li>
+                    <li>Đội ngũ giáo viên trình độ cao sẽ liên tục hỗ trợ, đánh giá, chấm điểm bài học, sửa sai và giúp
+                        bạn tiến bộ từng ngày.
+                    </li>
+                    <li>Ôn tập và học lại kiến thức theo trình độ của mình</li>
+                    <li>Chia sẻ, học hỏi và thi đua với cộng đồng thành viên English Study Web</li>
+                </ul>
+            </div>
+            <div class="cl">&nbsp;</div>
+        </section>
+
+        <section class="testimonial">
+
+            <p><strong class="quote">“Trên trái đất làm gì có đường.<br/> Người ta đi mãi thì thành đường
+                thôi.”</strong></p>
+
+            <p class="author">Cố hương - Lỗ Tẫn</p>
+        </section>
+    </div>
+{% endblock %}

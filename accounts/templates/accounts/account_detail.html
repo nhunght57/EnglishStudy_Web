@@ -1,6 +1,6 @@
 {% if user.is_authenticated %}
-    <p>You're logged in as {{ user.username }}</p>
+    <p>Hi, {{ user.username }}</p>
     <p>{{ user.profile.total_score }}</p>
 {% else %}
-    <p>You're not logged in</p>
+    <p>you haven't log in</p>
 {% endif %}

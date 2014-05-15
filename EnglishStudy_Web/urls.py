@@ -18,6 +18,9 @@ urlpatterns = patterns('',
     # /accounts
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 
+    # /about
+    url(r'^about/', 'EnglishStudy_Web.views.about', name='about'),
+
     # /polls - example polls application
     url(r'^polls/', include('polls.urls', namespace='polls')),
 

@@ -1,42 +1,45 @@
-<!DOCTYPE HTML>
-{% extends "skeleton.html" %}
+{% extends "base.html" %}
+
+{% block head %}
+    {% load staticfiles %}
+    <link href="{% static 'tracnghiem/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block navbar_li %}
+    <li><a href="/">Trang chủ</a></li>
+    <li class="active"><a href="{% url 'tracnghiem:index' %}">Trắc nghiệm</a></li>
+    <li><a href="/about">Liên hệ</a></li>
+{% endblock %}
 
 
-{% load staticfiles %}
-
-{% block title %}Trắc Nghiệm{% endblock %}
-
-{% block content_of_website %}
-
-<div>
-    {% if user.is_authenticated %}
-        {% if list_of_questions %}
-            <form method="post" action="{% url 'tracnghiem:post' %}">
-                {% csrf_token %}
-                <center> Bài kiểm tra số 1 </center>
-                <ul>
-                    {% for question in list_of_questions %}
-                        <li>
-                            {{ question.question_text }}
-                            <ul>
-                                {% for choice in question.choice_set.all %}
-                                    <input type="radio"
-                                           name="question{{ question.id }}"
-                                           id="{{ choice.id }}"
-                                           value="{{ choice.id }}"/>
-                                    <label for="{{ choice.id }}">{{ choice.choice_text }}</label><br/>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <input type="submit" name="submit" value="Lưu kết quả"/>
-            </form>
+{% block content_container %}
+    <div class="starter-template">
+        {% if user.is_authenticated %}
+            {% if list_of_questions %}
+                <form method="post" action="{% url 'tracnghiem:post' %}">{% csrf_token %}
+                    <ul>
+                        {% for question in list_of_questions %}
+                            <li>
+                                {{ question.question_text }}
+                                <ul>
+                                    {% for choice in question.choice_set.all %}
+                                        <label class="radio-inline">
+                                            <input type="radio" name="question{{ question.id }}" id="{{ choice.id }}"
+                                                   value="{{ choice.id }}">
+                                            {{ choice.choice_text }}
+                                        </label>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <input type="submit" class="btn btn-success" name="submit" value="Lưu kết quả"/>
+                </form>
+            {% else %}
+                <p>Không có gì thú vị ở đây cả</p>
+            {% endif %}
         {% else %}
-            <p>Không có gì thú vị ở đây cả</p>
+            <p>Bạn chưa đăng nhập</p>
         {% endif %}
-    {% else %}
-        <p>Bạn chưa đăng nhập</p>
-    {% endif %}
-</div>
+    </div>
 {% endblock %}

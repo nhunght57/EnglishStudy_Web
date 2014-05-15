@@ -34,6 +34,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 # Application definition
 INSTALLED_APPS = (
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,10 +43,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'polls',
-    'tracnghiem',
     'accounts',
-    'lettuce.django',
+    'tracnghiem',
 
+    'lettuce.django'
 
 )
 
