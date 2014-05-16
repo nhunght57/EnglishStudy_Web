@@ -19,8 +19,9 @@ class UserProfile(models.Model):
     home = models.CharField(default='Hanoi', max_length=200)
     score_of_the_last_test = IntegerField(default=0)
     total_score = IntegerField(default=0)
-    REQUIRED_FIELDS = ['Score of the last test', 'Total score']
+    REQUIRED_FIELDS = ['birthday', 'home', 'Score of the last tests', 'Total score']
 
+    REQUIRED_FIELDS = ['Score of the last test', 'Total score']
     # Override the __str__() method to return out something meaningful!
     def __str__(self):
         return self.user.username

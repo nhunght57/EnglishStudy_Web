@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
@@ -43,7 +44,7 @@ def auth(request):
 
     else:
         print("Authentication failed")
-        return HttpResponse("<p>Tên đăng nhập hoặc mật khẩu không đúng<p>")
+        return HttpResponse("<p>username or password is not correct<p>")
 
 
 # This method use for handling POST request in signup_view
@@ -76,18 +77,18 @@ def create_account(request):
 
     if all(condition is True for condition in conditions.values()):
         create_new_user_object(username, email, password, birthday, home)
-        return HttpResponse("<p>" + username + " đã đăng ký thành công</p>")
+        return HttpResponse("<p>" + username + " registry successfully</p>")
 
     else:
-        error_message = "Có lỗi xảy ra. Vui lòng kiểm tra lại thông tin của bạn:<p>"
+        error_message = "Error. Please check your information<p>"
         if conditions['requested_username_is_available'] is False:
-            error_message += "Tên đăng nhập đã tồn tại<br/>"
+            error_message += "username is not available<br/>"
 
         if conditions['valid_email_address'] is False:
-            error_message += "Địa chỉ e-mail không hợp lệ<br/>"
+            error_message += "email address is invalid<br/>"
 
         if conditions['password_and_password_verify_is_matched'] is False:
-            error_message += "Mật khẩu kiểm tra không khớp<br/>"
+            error_message += "password not matched<br/>"
 
         return HttpResponse(error_message + "</p>")
 

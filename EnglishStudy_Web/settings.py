@@ -31,19 +31,23 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
+
 # Application definition
 INSTALLED_APPS = (
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django_extensions',
     'polls',
-    'tracnghiem',
     'accounts',
-    'comment',
+    'tracnghiem',
+
+    'lettuce.django'
+
 )
 
 MIDDLEWARE_CLASSES = (
